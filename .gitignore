@@ -1,4 +1,5 @@
 tmp/
+go/
 .local/
 .npm/
 .zim/
