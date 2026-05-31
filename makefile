@@ -19,7 +19,7 @@ CONFIGS := \
 			mako
 
 
-.PHONY: link builddevbox setupdevbox setup
+.PHONY: link builddevbox setupdevbox setup clean
 
 link:
 	mkdir -p $(HOST_CONFIGPATH)
@@ -28,10 +28,15 @@ link:
 	done
 
 builddevbox:
-	DEVHOME=$(CURDIR) podman build --group-add keep-groups -t devbox .
+	podman build --group-add keep-groups -t devbox .
 
 setupdevbox:
 	distrobox-create --image devbox --home $(CURDIR) devbox
 	distrobox enter devbox
+	which sylmark
 
 setup: link builddevbox setupdevbox
+
+clean:
+	distrobox rm devbox
+	podman rmi devbox
