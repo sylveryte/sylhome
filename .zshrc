@@ -120,6 +120,9 @@ alias gits='git status'
 alias zathura='zathura --fork'
 alias nv="nvim"
 alias n="nvim"
+export GOPATH="$HOME/go"
+export GOMODCACHE="$HOME/go/pkg/mod"
+export PATH=$PATH:$GOPATH
 # export TERM=xterm-256color
 
 

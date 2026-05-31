@@ -1,3 +1,4 @@
+-- paste Image into markdowns
 return {
   "HakonHarnes/img-clip.nvim",
   event = "VeryLazy",

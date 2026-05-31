@@ -1,30 +1,31 @@
 return {
   "mason-org/mason.nvim",
   dependencies = { 'neovim/nvim-lspconfig',
-  "mason-org/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     {
       'creativenull/efmls-configs-nvim',
       version = 'v1.x.x', -- version is optional, but recommended
-      dependencies = { 'neovim/nvim-lspconfig' },
     }
   },
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup {
-    ensure_installed = {
-      -- general
-      "efm",
-      -- web
-      "ts_ls", "cssls", "astro", "svelte", "tailwindcss", "html",
-      -- specific langs
-      "lua_ls",
-      "pylsp",
-      -- "gopls",
-      "rust_analyzer",
-      -- "sqls",
-      "clangd",
-  },
-}
+      ensure_installed = {
+        -- general
+        "efm",
+        -- web
+        -- "svelte",
+        "ts_ls", "cssls", "astro",
+        "tailwindcss", "html",
+        -- specific langs
+        "lua_ls",
+        "pylsp",
+        -- "gopls",
+        "rust_analyzer",
+        "sqls",
+        "clangd",
+      },
+    }
 
     vim.lsp.config.sylmark = {
       -- cmd = { "/home/sylveryte/trisha/sylmark-linux-amd64" },
@@ -70,22 +71,6 @@ return {
       filetypes = { 'ledger' },
     }
 
-
-    vim.lsp.config.markdown_oxide = {
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_user_command(
-          "Daily",
-          function(args)
-            local input = args.args
-
-            vim.lsp.buf.execute_command({ command = "jump", arguments = { input } })
-            -- For deprecation
-            -- client:exec_cmd( "jump",  {} ) --lot of issues
-          end,
-          { desc = 'Open daily note', nargs = "*" }
-        )
-      end
-    }
 
     vim.lsp.config.lua_ls = {
       settings = {
@@ -174,7 +159,9 @@ return {
       -- general
       "efm",
       -- web
-      "ts_ls", "cssls", "astro", "svelte", "tailwindcss", "html",
+      "ts_ls", "cssls", "astro",
+      -- "svelte",
+      "tailwindcss", "html",
       -- specific langs
       "lua_ls",
       "pylsp",
@@ -182,8 +169,6 @@ return {
       "rust_analyzer",
       "sqls",
       "clangd",
-      -- "markdown_oxide",
-      -- "marksman"
     })
   end
 }

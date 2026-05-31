@@ -60,10 +60,10 @@ return {
               prompt_position = "bottom",
             }
           },
-          mappings = {
-            i = { ["<c-t>"] = require('trouble').open_with_trouble },
-            n = { ["<c-t>"] = require('trouble').open_with_trouble },
-          },
+          -- mappings = {
+          --   i = { ["<c-t>"] = require('trouble').open_with_trouble },
+          --   n = { ["<c-t>"] = require('trouble').open_with_trouble },
+          -- },
         },
       }
     )
