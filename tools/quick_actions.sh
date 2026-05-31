@@ -27,7 +27,7 @@ case "$ACTION" in
           ln -sf "$HOME"/.config/fuzzel/dark_fuzzel.ini "$HOME"/.config/fuzzel/fuzzel.ini
       # Set foot
           ln -sf "$HOME"/.config/foot/foot_dark.ini "$HOME"/.config/foot/foot.ini
-      pkill -USR1 zsh # check foot wiki for day night
+      # pkill -USR1 zsh # check foot wiki for day night # warning zsh closes, solution is theme.sh
 
       # waybar
           ln -sf "$HOME"/.config/waybar/style_dark.css "$HOME"/.config/waybar/style.css
@@ -56,7 +56,7 @@ case "$ACTION" in
           ln -sf "$HOME"/.config/fuzzel/light_fuzzel.ini "$HOME"/.config/fuzzel/fuzzel.ini
       # Set foot
           ln -sf "$HOME"/.config/foot/foot_light.ini "$HOME"/.config/foot/foot.ini
-      pkill -USR1 zsh # check foot wiki for day night
+      # pkill -USR1 zsh # check foot wiki for day night; see dark
 
       # waybar
           ln -sf "$HOME"/.config/waybar/style_light.css "$HOME"/.config/waybar/style.css
