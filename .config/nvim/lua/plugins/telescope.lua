@@ -1,4 +1,3 @@
-local syllsp = require "utils.syllsp"
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -21,11 +20,10 @@ return {
     require('telescope').load_extension('neoclip')
     require("dir-telescope").setup()
     require("telescope").load_extension("dir")
-    require("telescope").load_extension("ui-select")
     require("telescope").load_extension("undo")
     local spath = require('utils.sylpath')
     local ut = require('utils/telescope')
-    -- local themes = require('telescope.themes')
+    local themes = require('telescope.themes')
     require("frecency.config").setup {
       auto_validate = true,
       db_validate_threshold = 100
@@ -44,6 +42,30 @@ return {
             override_file_sorter = true,    -- override the file sorter
             case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           },
+          -- ["ui-select"] = {
+          --   themes.get_cursor({
+          --     previewer = false,
+          --     initial_mode = "normal",
+          --   }),
+          -- },
+          ["ui-select"] =
+              themes.get_dropdown({
+                previewer = false,
+                layout_strategy = "center",
+
+                layout_config = {
+                  width = 50,
+                  height = 10,
+                },
+
+              }),
+          -- ["ui-select"] = {
+          --   require("telescope.themes").get_dropdown({
+          --     previewer = false,
+          --     width = 40,
+          --     height = 8,
+          --   }),
+          -- },
         },
         defaults = {
           layout_strategy = 'vertical',
@@ -65,7 +87,9 @@ return {
           --   n = { ["<c-t>"] = require('trouble').open_with_trouble },
           -- },
         },
-      }
+      },
+      -- load after config setup so it picks up
+      require("telescope").load_extension("ui-select")
     )
     local map = vim.keymap.set
     local builtin = require('telescope.builtin')
@@ -106,9 +130,9 @@ return {
     map('n', '<leader>k', builtin.oldfiles, { desc = "telescope oldfiles" })
     map('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = "telescope current_buffer_fuzzy_find" })
     map('n', 'gd', function()
-      -- syllsp.better_link_action(builtin.lsp_definitions)
-      builtin.lsp_definitions()
-    end,
+        -- syllsp.better_link_action(builtin.lsp_definitions)
+        builtin.lsp_definitions()
+      end,
       { desc = "telescope syl lsp_definitions" })
     map('n', '<leader>gi', builtin.lsp_implementations, { desc = "telescope lsp_implementations" })
     map('n', 'grt', builtin.lsp_references, { desc = "telescope lsp_references" })
