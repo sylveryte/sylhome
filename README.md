@@ -1,9 +1,13 @@
 # Sylveryte's dotfiles
 
+## Link config
+
+`make link`
+
 ## Setup devbox
 
-[Devbox Page](/devbox/README.md)
+`make setup`
 
-## Setup host / link config
+## Remove
 
-[Home Configs](/home/README.md)
+`make clean`

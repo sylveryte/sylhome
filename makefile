@@ -35,7 +35,7 @@ setupdevbox:
 	distrobox enter devbox
 	which sylmark
 
-setup: link builddevbox setupdevbox
+setup: builddevbox setupdevbox
 
 clean:
 	distrobox rm devbox

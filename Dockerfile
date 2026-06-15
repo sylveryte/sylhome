@@ -20,6 +20,8 @@ RUN pacman -Syu --noconfirm \
     nodejs \
     ripgrep \
     gopls \
+    tree-sitter-cli \
+    hurl \
     zip \
     curl \
     && pacman -Scc --noconfirm
