@@ -22,7 +22,7 @@ return {
       'json', 'csv',
       'yaml', 'toml',
       --docs
-      'markdown', 'markdown-inline', 'vimdoc',
+      'markdown', 'vimdoc',
       -- web
       'javascript', 'jsdoc', 'typescript', 'tsx', 'html', 'css', 'scss', 'astro',
       'hurl',
