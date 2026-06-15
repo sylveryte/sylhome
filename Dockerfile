@@ -34,6 +34,7 @@ ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 # Install Go-based development tools
 # Example:
 RUN go install github.com/air-verse/air@latest
+RUN go install github.com/pressly/goose/v3/cmd/goose@latest
 
 # Install sylmark
 RUN git clone https://codeberg.org/sylveryte/sylmark.git /tmp/sylmark && \

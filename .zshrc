@@ -121,8 +121,9 @@ alias zathura='zathura --fork'
 alias nv="nvim"
 alias n="nvim"
 export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
 export GOMODCACHE="$HOME/go/pkg/mod"
-export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOBIN
 # export TERM=xterm-256color
 
 
